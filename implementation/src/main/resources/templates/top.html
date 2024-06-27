@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>管理者トップページ</title>
+</head>
+
+<body>
+    <h1>管理者トップページ</h1>
+    <form th:action="@{/admin/top}" method="post">
+        <ul>
+            <li><a href="/admin/users">管理者一覧</a></li>
+            <li><a href="/admin/stores">店舗詳細</a></li>
+            <li><a href="/admin/products">商品一覧</a></li>
+            <li><a href="/admin/orders">商品発注履歴</a></li>
+            <li><a href="/admin/manufacturers">メーカー一覧</a></li>
+            <li><a href="/admin/categories">大カテゴリ一覧</a></li>
+        </ul>
+    </form>
+	<button type="submit">Myページ</button>
+
+    <a th:href="@{/admin/signin}">ログアウト</a>
+</body>
+
+</html>

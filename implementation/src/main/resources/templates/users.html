@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>管理者一覧</title>
+	<style>
+		/* クリック可能な行のスタイル */
+		.clickable-row {
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>管理者一覧</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>姓</th>
+				<th>名</th>
+				<th>メールアドレス</th>
+				<th>詳細</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="admin : ${admins}" th:class="'clickable-row'" th:data-id="${admin.id}"
+				onclick="redirectToDetail(this)">
+				<td th:text="${admin.id}"></td>
+				<td th:text="${admin.first_name}"></td>
+				<td th:text="${admin.last_name}"></td>
+				<td th:text="${admin.email}"></td>
+				<td>
+					<button type="button" class="btn btn-primary">詳細</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/admin/top}">TOPに戻る</a>
+	<a th:href="@{/admin/signup}">新規登録</a>
+
+	<script th:inline="javascript">
+		function redirectToDetail(row) {
+			var adminId = row.getAttribute('data-id');
+			window.location.href = '/admin/users/' + adminId;
+		}
+	</script>
+
+</body>
+
+</html>

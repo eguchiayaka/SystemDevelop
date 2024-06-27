@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>新規登録</title>
+</head>
+
+<body>
+	<h1>新規登録</h1>
+	<form th:action="@{/admin/signup}" method="post" th:object="${signupForm}">
+
+		<table border="1">
+			<tr>
+				<td>店舗ID</td>
+				<td>
+					<input type="text" th:field="*{store_id}" />
+					<span th:if="${#fields.hasErrors('store_id')}" th:errors="*{store_id}" style="color: red"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>姓</td>
+				<td>
+					<input type="text" th:field="*{first_name}" />
+					<span th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"
+						style="color: red"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>名</td>
+				<td>
+					<input type="text" th:field="*{last_name}" />
+					<span th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}" style="color: red"></span>
+				</td>
+			</tr>
+
+
+			<tr>
+				<td>メールアドレス</td>
+				<td>
+					<input type="email" th:field="*{email}" />
+					<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>役職 ID</td>
+				<td>
+					<input type="text" th:field="*{position_id}" />
+					<span th:if="${#fields.hasErrors('position_id')}" th:errors="*{position_id}"
+						style="color: red"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>権限 ID</td>
+				<td>
+					<input type="text" th:field="*{authority_id}" />
+					<span th:if="${#fields.hasErrors('authority_id')}" th:errors="*{authority_id}"
+						style="color: red"></span>
+				</td>
+			</tr>
+
+			</tr>
+
+			<tr>
+				<td>電話番号</td>
+				<td>
+					<input type="tel" th:field="*{phone}" />
+					<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" style="color: red"></span>
+				</td>
+			</tr>
+
+
+			<tr>
+				<td>パスワード</td>
+				<td>
+					<input type="password" th:field="*{password}" />
+					<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red"></span>
+				</td>
+			</tr>
+
+		</table>
+		<input type="submit" value="登録">
+	</form>
+
+</html>

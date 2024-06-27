@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>管理者詳細</title>
+</head>
+
+<body>
+	<h1>管理者詳細</h1>
+	<table border="1">
+		<form method="post" th:action="@{/admin/users/{id}(id=${admin.id})}">
+		<th>ID</th>
+		<td th:text="${admin.id}"></td>
+		</tr>
+		<tr>
+			<th>店舗</th>
+			<td th:text="${admin.store_id}"></td>
+		</tr>
+		<tr>
+			<th>姓</th>
+			<td th:text="${admin.first_name}"></td>
+		</tr>
+		<tr>
+			<th>名</th>
+			<td th:text="${admin.last_name}"></td>
+		</tr>
+		<tr>
+			<th>メールアドレス</th>
+			<td th:text="${admin.email}"></td>
+		</tr>
+		<tr>
+			<th>役職</th>
+			<td th:text="${admin.position_id}"></td>
+		</tr>
+		<tr>
+			<th>権限</th>
+			<td th:text="${admin.authority_id}"></td>
+		</tr>
+		<tr>
+			<th>電話番号</th>
+			<td th:text="${admin.phone}"></td>
+		</tr>
+		<tr>
+			<th>パスワード</th>
+			<td>
+				<span th:utext="${'&#9899;&#9899;&#9899;&#9899;'}"></span>
+			</td>
+		</tr>
+	</table>
+		<button type="submit" name="action" value="delete">削除</button>
+		<button type="submit" name="action" value="edit">編集</button>
+	</form>
+	<a th:href="@{/admin/users}">一覧に戻る</a>
+	
+
+	</tr>
+	</script>
+</body>
+
+</html>
